@@ -7,17 +7,25 @@
     <Description>Encryption options for encrypting data.</Description>
     <Copyright>Copyright © Woodward Coding 2021</Copyright>
     <PackageLicenseFile></PackageLicenseFile>
-    <PackageReleaseNotes>* Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>* Added SignatureValidation class to validate siging data.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
     <OutputPath>bin\$(Configuration)\$(TargetFrameworkVersion)\</OutputPath>
+    <Version>1.0.1</Version>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/an-d-uu/Utility.Encryption</RepositoryUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="License.md" />
-    <None Remove="License.md" />
-  </ItemGroup>
+
+	<ItemGroup>
+		<None Remove="License.md" />
+		<None Include="readme.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
+
