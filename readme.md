@@ -5,6 +5,10 @@ A Utility that allows you to encrypt data using Rijndael/AES and validate/hash s
 
 ### Available Classes
 
+#### Hash
+***
+Implements the example hashing code found in the article <https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash>
+
 #### RijndaelEnhanced
 ***
 This class uses a symmetric key algorithm (Rijndael/AES) to encrypt and
