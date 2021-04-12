@@ -53,7 +53,7 @@ public enum eCryptographyType
         /// Validates the signature.
         /// </summary>
         /// <returns>true or false</returns>
-        public static bool validSignature(string data, string secret, eCryptographyType cryptography)
+        public static bool validSignature(string signature, string data, string secret, eCryptographyType cryptography)
         {
             bool returnValue = false;
 
@@ -61,7 +61,7 @@ public enum eCryptographyType
             {
                 string hashedDataSig = hashData(data, secret, cryptography);
 
-                if (hashedDataSig == secret)
+                if (hashedDataSig == signature)
                 {
                     returnValue = true;
                 }
