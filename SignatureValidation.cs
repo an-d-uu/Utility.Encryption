@@ -7,59 +7,46 @@ namespace Utility.Encryption
 #if NET40
     public enum eCryptographyType
     {
-        HMACMD5,
-        HMACRIPEMD160,
-        HMACSHA1,
-        HMACSHA256,
-        HMACSHA384
+        HMACMD5 = 0,
+        HMACRIPEMD160 = 1,
+        HMACSHA1 = 2,
+        HMACSHA256 = 3,
+        HMACSHA384 = 4
 
     }
 #elif NET5_0_OR_GREATER
-public enum eCryptographyType
+    public enum eCryptographyType
     {
-        HMACMD5,
-        HMACSHA1,
-        HMACSHA256,
-        HMACSHA384,
-        HMACSHA512
+        HMACMD5 = 0,
+        HMACSHA1 = 2,
+        HMACSHA256 = 3,
+        HMACSHA384 = 4,
+        HMACSHA512 = 5
     }
 #else
-public enum eCryptographyType
+    public enum eCryptographyType
     {
-        HMACMD5,
-        HMACRIPEMD160,
-        HMACSHA1,
-        HMACSHA256,
-        HMACSHA384,
-        HMACSHA512
+        HMACMD5 = 0,
+        HMACRIPEMD160 = 1,
+        HMACSHA1 = 2,
+        HMACSHA256 = 3,
+        HMACSHA384 = 4,
+        HMACSHA512 = 5
     }
 #endif
 
     public class SignatureValidation
     {
         /// <summary>
-        /// Adds a useful epoch datetime function for including in hashing and validating signatures
-        /// </summary>
-        /// <param name="unixTime"></param>
-        /// <returns></returns>
-        public static DateTime FromUnixTime(long unixTime)
-        {
-            return epoch.AddMilliseconds(unixTime);
-        }
-        private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-
-        /// <summary>
         /// Validates the signature.
         /// </summary>
         /// <returns>true or false</returns>
-        public static bool validSignature(string signature, string data, string secret, eCryptographyType cryptography)
+        public static bool ValidSignature(string signature, string data, string secret, eCryptographyType cryptography)
         {
-            bool returnValue = false;
-
+            bool returnValue;
             try
             {
-                string hashedDataSig = hashData(data, secret, cryptography);
+                string hashedDataSig = HashData(data, secret, cryptography);
 
                 if (hashedDataSig == signature)
                 {
@@ -79,7 +66,7 @@ public enum eCryptographyType
         }
 
 #if NET40
-        public static string hashData(string data, string secret, eCryptographyType cryptography)
+        public static string HashData(string data, string secret, eCryptographyType cryptography)
         {
             string returnValue = string.Empty;
             secret = secret ?? "";
@@ -142,7 +129,7 @@ public enum eCryptographyType
             return returnValue;
         }
 #elif NET5_0_OR_GREATER
-        public static string hashData(string data, string secret, eCryptographyType cryptography)
+        public static string HashData(string data, string secret, eCryptographyType cryptography)
         {
             string returnValue = string.Empty;
             secret = secret ?? "";
@@ -204,7 +191,7 @@ public enum eCryptographyType
             return returnValue;
         }
 #else
-        public static string hashData(string data, string secret, eCryptographyType cryptography)
+        public static string HashData(string data, string secret, eCryptographyType cryptography)
         {
             string returnValue = string.Empty;
             secret = secret ?? "";
