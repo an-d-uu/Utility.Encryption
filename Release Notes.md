@@ -4,6 +4,12 @@ A Utility that allows you to encrypt data using Rijndael\AES and validate\hash s
 
 ***
 
+**Update 1.0.7 - 04/23/2021**
+* Added additional methods to send in the epoch value to asist with matching signature values.
+
+**Update 1.0.6 - 04/23/2021**
+* Added GetEpoch() method to Signature class.
+
 **Update 1.0.5 - 04/22/2021**
 * Renamed SigningObject to Signature for clarity.
 * Updated all methods to be Title Case.

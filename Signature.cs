@@ -15,9 +15,18 @@ namespace Utility.Encryption
             SetEpoch();
             signature = string.Empty;
         }
+
         public Signature(string secret, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256) : base()
         {
             SetEpoch();
+            SetSecret(secret);
+            SetCryptographyType(cryptographyType);
+            CreateSignature(value2Sign);
+        }
+
+        public Signature(string secret, long epoch, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256) : base()
+        {
+            SetEpoch(epoch);
             SetSecret(secret);
             SetCryptographyType(cryptographyType);
             CreateSignature(value2Sign);
@@ -28,9 +37,19 @@ namespace Utility.Encryption
             return new Signature(secret, value2Sign, cryptographyType);
         }
 
+        public static Signature Create(string secret, long epoch, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256)
+        {
+            return new Signature(secret, epoch, value2Sign, cryptographyType);
+        }
+
         public void SetEpoch()
         {
             epoch = Extensions.ToUnixTimeSeconds(DateTime.UtcNow);
+        }
+
+        public void SetEpoch(long value)
+        {
+            epoch = value;
         }
 
         public void SetSecret(string value)
@@ -155,6 +174,11 @@ namespace Utility.Encryption
                 return signature;
             }
 
+        }
+
+        public long GetEpoch()
+        {
+            return epoch;
         }
     }
 }
