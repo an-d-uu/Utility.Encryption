@@ -6,7 +6,7 @@ namespace Utility.Encryption
     public class Hash
     {
         /// <summary>
-        /// Keeping this is an an example and for backwards compatibility with another app
+        /// Keeping this as an example and for backwards compatibility with another app
         /// </summary>
         /// <param name="input">Date you want hashed</param>
         /// <returns></returns>

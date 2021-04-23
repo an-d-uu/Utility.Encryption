@@ -2,20 +2,20 @@
 
 namespace Utility.Encryption
 {
-    public class SigningObject
+    public class Signature
     {
         private long epoch { get; set; }
         private eCryptographyType cryptographyType { get; set; }
         private string signature { get; set; }
         private string secret { get; set; }
 
-        public SigningObject() : base()
+        public Signature() : base()
         {
             cryptographyType = eCryptographyType.HMACSHA256;
             SetEpoch();
             signature = string.Empty;
         }
-        public SigningObject(string secret, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256) : base()
+        public Signature(string secret, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256) : base()
         {
             SetEpoch();
             SetSecret(secret);
@@ -23,9 +23,9 @@ namespace Utility.Encryption
             CreateSignature(value2Sign);
         }
 
-        public static SigningObject Create(string secret, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256)
+        public static Signature Create(string secret, string value2Sign = "", eCryptographyType cryptographyType = eCryptographyType.HMACSHA256)
         {
-            return new SigningObject(secret, value2Sign, cryptographyType);
+            return new Signature(secret, value2Sign, cryptographyType);
         }
 
         public void SetEpoch()

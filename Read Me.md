@@ -7,7 +7,7 @@ A Utility that allows you to encrypt data using Rijndael/AES and validate/hash s
 
 #### Extensions
 ***
-Adds a static class that will be used to transform objects.
+Adds a static class that extends the functionality of other objects.
 
 #### Hash
 ***
@@ -34,6 +34,6 @@ This class allows users to use the following hashing algorithms to hash data and
 * HMACSHA512
   * unavailable in .NET 4.0
 
-#### SigningObject
+#### Signature
 ***
 This class lets you create a signature using simple calls without having to write you own signature creation method. It has the flexibility to create the signature with nothing more than the secret being set by the initiating call.

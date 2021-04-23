@@ -4,6 +4,11 @@ A Utility that allows you to encrypt data using Rijndael\AES and validate\hash s
 
 ***
 
+**Update 1.0.5 - 04/22/2021**
+* Renamed SigningObject to Signature for clarity.
+* Updated all methods to be Title Case.
+* Add support for .Net versions 2.0 and 3.5.
+
 **Update 1.0.4 - 04/22/2021**
 * Added SigningObject class.
 * Added Extensions class.
